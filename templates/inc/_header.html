@@ -1,0 +1,12 @@
+{% block content %}
+    <div class="container mt-4 m-0 p-0">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'user_list' %}active{% endif %}" data-bs-toggle="tab" href="{% url "user_list" %}">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'group_list' %}active{% endif %}" data-bs-toggle="tab" href="{% url "group_list" %}">Groups</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

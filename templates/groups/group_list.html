@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Group List</h1>
+<a href="{% url 'group_add' %}" class="btn btn-primary">Add Group</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for group in groups %}
+    <tr>
+      <td>{{ group.id }}</td>
+      <td>{{ group.name }}</td>
+      <td>{{ group.description }}</td>
+      <td>
+        <a href="{% url 'group_edit' group.id %}" class="btn btn-warning btn-sm">Edit</a>
+        <a href="{% url 'group_delete' group.id %}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
